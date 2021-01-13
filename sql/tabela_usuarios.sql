@@ -1,0 +1,6 @@
+CREATE TABLE usuarios (
+id INT PRIMARY KEY IDENTITY(1,1),
+codigo_departamento INT,
+nome VARCHAR(200) NOT NULL,
+login VARCHAR(100) NOT NULL,
+email VARCHAR(200) NOT NULL)
