@@ -1,0 +1,209 @@
+body {
+  padding: 30px 50px 0 !important;
+}
+
+label, p {
+  margin: 0;
+  padding: 0;
+}
+.logo{
+
+  border: 3px solid #FFF;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  padding: 5px;
+}
+
+.side-nav .collapsible a {
+padding-left: 20px;
+}
+
+.slogan {
+  color: #3c4043;
+  font-weight: 500;
+  font-size: .875rem;
+  margin: 0 0 15px 0;
+}
+
+.md-form.mat-2 input[type=text],
+.md-form.mat-2 input[type=tel],
+.md-form.mat-2 input[type=password],
+.md-form.mat-2 input[type=email] {
+  border-width: 1px !important;
+  border-style: solid;
+  border-color: #ced4da;
+  border-radius: 5px;
+  padding-top: .5rem;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-bottom: .3rem;
+  font-size: .875rem;
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+
+.details{
+  font-size: .875rem;
+}
+
+.md-form.mat-2 select {
+  border-width: 1px !important;
+  display: block !important;
+  border-style: solid;
+  border-color: #ced4da;
+  border-radius: 5px;
+  padding-top: .5rem;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-bottom: .5rem;
+  font-size: .875rem;
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+
+.md-form.mat-2 textarea {
+  border-width: 1px !important;
+  display: block !important;
+  border-style: solid;
+  border-color: #ced4da;
+  border-radius: 5px;
+  padding-top: .5rem;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-bottom: .5rem;
+  font-size: .875rem;
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+
+.md-form.mat-2 p{
+  margin-bottom: 5px;
+  color: #3c4043;
+  font-weight: 500;
+  font-size: .875rem;
+
+}
+
+.md-form.mat-2 input[type=text]:focus,
+.md-form.mat-2 input[type=tel]:focus,
+.md-form.mat-2 input[type=password]:focus,
+.md-form.mat-2 input[type=email]:focus {
+  border-color: #4285f4;
+  box-shadow: inset 0px 0px 0px 1px #4285f4;
+}
+
+.md-form.mat-2 label {
+  top: .5rem;
+  left: 8px;
+  font-size: .875rem;
+}
+
+.md-form.mat-2 label.active {
+  background: #fff;
+  font-weight: 500;
+  padding-right: 5px;
+  padding-left: 5px;
+  font-size: 11px;
+  top: 1rem;
+  left: 8px;
+}
+
+.btn-toggle-pass {
+  border: none;
+  position: absolute;
+  top: 6px;
+  background: transparent;
+  right: 0;
+}
+
+.btn-toggle-pass.active {
+  color: var(--active-color);
+}
+
+.md-form{
+  margin-top: 0 !important;
+  margin-bottom: 10px !important;
+}
+
+.btn-toggle-pass{padding-right: 20px;}
+
+.row{ margin:0 !important; }
+
+
+
+/* The message box is shown when the user clicks on the password field */
+.show-password{
+  display:none;
+}
+.message {
+  display:none;
+  background: #FFF;
+  color: #000;
+  border:1px solid #CCC;
+  border-radius: 5px;
+  font-size: 14px;
+  position: relative;
+  padding: 5px;
+}
+
+.message p {
+  padding-left: 38px;
+}
+
+.message h5{
+  text-indent: 12px;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+  color: green;
+}
+
+.valid:before {
+  position: relative;
+  top: 0;
+  left: -25px;
+  content: "✔";
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+  color: red !important;
+}
+
+.invalid:before {
+  position: relative;
+  top: 0;
+  left: -25px;
+  color: red;
+  content: "✖";
+}
+
+.invalid-input {
+  color: #dc3545 !important;
+}
+.valid-input {
+color: #28a745 !important;
+}
+
+.form-control.is-invalid, .was-validated .form-control:invalid {
+    -webkit-box-shadow: 0 0 0 1px #dc3545 !important;
+    box-shadow: 0 0 0 1px #dc3545 !important;
+}
+
+.form-control.is-valid, .was-validated .form-control:valid {
+    -webkit-box-shadow: 0 0 0 1px #28a745 !important;
+    box-shadow: 0 0 0 1px #28a745 !important;
+}
+
+.table thead th {
+  vertical-align: middle !important;    
+}
+
+.table td, .table th {
+  padding: .75rem 0 !important;
+  vertical-align: middle !important; 
+}
