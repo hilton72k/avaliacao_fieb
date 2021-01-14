@@ -13,7 +13,6 @@
   <!-- Bootstrap core CSS -->
   <link href="assets/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet">
-  <link href="assets/css/sweetalert2.min.css" rel="stylesheet">
   <!-- JQuery -->
   <script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
 
@@ -62,7 +61,7 @@
               <option value="">Selecione</option>
               <option value="S">Sim</option>
               <option value="N">Não</option>
-            </select>        	   
+            </select>
           </div>
 
           <div class="md-form mat-2 col-md-3 pl-0" id="display-cat" style="display: none;">
@@ -186,6 +185,77 @@
           </div>          
       </div>
 
+      <hr />
+      <p class="slogan">Horário de Trabalho</p>
+      
+      <div class="row">
+        <table class="table table-bordered text-center">
+          <thead>
+          <tr>
+            <th>Dia da semana</th>
+            <th>Hora Início</th>
+            <th>Hora Fim</th>
+            <th>Tempo Descanso(h)</th>
+            <th>Carga Horária(h)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Segunda</td>
+            <td><input type="text" placeholder="HH:MM" id="hr_inicio1" name="hr_inicio1" class="form-control time hr col-md-4 offset-md-4"></td>
+            <td><input type="text" placeholder="HH:MM" id="hr_fim1" name="hr_fim1" class="form-control time hr col-md-4 offset-md-4"></td>
+            <td><input type="text" placeholder="h" maxlength="1" id="hr_descanso1" name="hr_descanso1" class="form-control number hr col-md-4 offset-md-4"></td>
+            <td id="carga_hr1">0</td>
+            <input type="hidden" value="0" id="hr_total1">
+          </tr>
+
+          <tr>
+            <td>Terça</td>
+            <td><input type="text" placeholder="HH:MM" id="hr_inicio2" name="hr_inicio2" class="form-control time hr col-md-4 offset-md-4"></td>
+            <td><input type="text" placeholder="HH:MM" id="hr_fim2" name="hr_fim2" class="form-control time hr col-md-4 offset-md-4"></td>
+            <td><input type="text" placeholder="h" maxlength="1" id="hr_descanso2" name="hr_descanso2" class="form-control number hr col-md-4 offset-md-4"></td>
+            <td id="carga_hr2">0</td>
+            <input type="hidden" value="0" id="hr_total2">
+          </tr>
+
+          <tr>
+            <td>Quarta</td>
+            <td><input type="text" placeholder="HH:MM" id="hr_inicio3" name="hr_inicio3" class="form-control time hr col-md-4 offset-md-4"></td>
+            <td><input type="text" placeholder="HH:MM" id="hr_fim3" name="hr_fim3" class="form-control time hr col-md-4 offset-md-4"></td>
+            <td><input type="text" placeholder="h" maxlength="1" id="hr_descanso3" name="hr_descanso3" class="form-control number hr col-md-4 offset-md-4"></td>
+            <td id="carga_hr3">0</td>
+            <input type="hidden" value="0" id="hr_total3">
+          </tr>
+
+          <tr>
+            <td>Quinta</td>
+            <td><input type="text" placeholder="HH:MM" id="hr_inicio4" name="hr_inicio4" class="form-control time hr col-md-4 offset-md-4"></td>
+            <td><input type="text" placeholder="HH:MM" id="hr_fim4" name="hr_fim4" class="form-control time hr col-md-4 offset-md-4"></td>
+            <td><input type="text" placeholder="h" maxlength="1" id="hr_descanso4" name="hr_descanso4" class="form-control number hr col-md-4 offset-md-4"></td>
+            <td id="carga_hr4">0</td>
+            <input type="hidden" value="0" id="hr_total4">
+          </tr>
+
+          <tr>
+            <td>Sexta</td>
+            <td><input type="text" placeholder="HH:MM" id="hr_inicio5" name="hr_inicio5" class="form-control time hr col-md-4 offset-md-4"></td>
+            <td><input type="text" placeholder="HH:MM" id="hr_fim5" name="hr_fim5" class="form-control time hr col-md-4 offset-md-4"></td>
+            <td><input type="text" placeholder="h" maxlength="1" id="hr_descanso5" name="hr_descanso5" class="form-control number hr col-md-4 offset-md-4"></td>
+            <td id="carga_hr5">0</td>
+            <input type="hidden" value="0" id="hr_total5">
+          </tr>
+
+        </thead>
+        </tbody>
+        <tfoot>
+            <tr>
+              <th colspan="4">Carga Horária Semanal</th>
+              <td id="carga_total">0</td>
+            </tr>
+        </tfoot>
+        </table>        
+      </div>
+
       <div class="card-foter">
       <button type="submit" class="btn btn-outline-primary">Cadastrar</button>
       </div>
@@ -195,12 +265,13 @@
 
 <!-- SCRIPTS -->
 <script src="assets/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/sweetalert2.min.js"></script>
 <script src="assets/js/jquery.mask.min.js"></script>
 <script src="assets/js/masks.js"></script>
 <script src="assets/js/consulta.ajax.js"></script>
 <script src="assets/js/jquery.validate.min.js"></script>
 <script src="assets/js/validate.costumer.js"></script>
+<script src="assets/js/moment.js"></script>
+<script src="assets/js/utility.js"></script>
 
 </body>
 </html>
@@ -219,6 +290,30 @@
                   }
               } else { $("#display-cat").css('display', 'none'); }
       });
-                 
+      
+      $('.hr').keyup(function({target}){
+
+        var id = target.id.replace(/[^0-9]/g, '');
+
+        for (var i = 1; i < 6; i++) {
+          let hr_inicio = $('#hr_inicio'+i).val();
+          let hr_fim = $('#hr_fim'+i).val();
+          let hr_descanso = $('#hr_descanso'+i).val();
+          let carga_diaria = 0;
+
+          if(id == i){
+            if((!empty(hr_inicio) && hr_inicio.length == 5) && (!empty(hr_fim) && hr_fim.length == 5) && hr_descanso != ''){
+              $('#carga_hr'+i).html(diferencaHoras(hr_inicio, hr_fim, hr_descanso));
+              $('#hr_total'+i).val(diferencaHoras(hr_inicio, hr_fim, hr_descanso));
+              carga_diaria = diferencaHoras(hr_inicio, hr_fim, hr_descanso);
+              if(carga_diaria>10){
+                alert('Atenção, sua carga horária diária está acima de 10 horas.');
+              }
+              cargaHorariaSemanal();
+            }
+          }
+
+        }
+      });
   });
 </script>
