@@ -82,7 +82,7 @@
                         if (endereco['erro'] == true) {
                             $('.carregando').css('display', 'none');
                             $('#dados-en').css('display', 'none');
-                            Swal.fire('Oops...', 'CEP inválido, tente novamente.', 'error');
+                            alert('Oops... CEP inválido tente novamente.');
                             $('.cep').parents(".md-form").addClass("invalid-input").removeClass("valid-input");
                             $('.cep').addClass("is-invalid").removeClass("is-valid");
                             $('.cep').val('');
